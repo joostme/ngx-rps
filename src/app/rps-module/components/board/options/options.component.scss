@@ -1,0 +1,15 @@
+.option {
+    display: inline-block;
+    cursor: pointer;
+    margin: 1rem;
+    text-align: center;
+    &:hover {
+        color: rgba(black, 0.6);
+    }
+}
+
+.text {
+    display: block;
+    font-weight: bold;
+    font-size: 1.25em;
+}

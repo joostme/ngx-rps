@@ -1,3 +1,12 @@
-<button (click)="playTurn(rockPaperScissors.Rock)"><i class="far fa-hand-rock"></i></button>
-<button (click)="playTurn(rockPaperScissors.Paper)"><i class="far fa-hand-paper"></i></button>
-<button (click)="playTurn(rockPaperScissors.Scissors)"><i class="far fa-hand-scissors"></i></button>
+<div class="option" (click)="playTurn(rockPaperScissors.Rock)">
+    <i class="icon far fa-hand-rock fa-5x"></i>
+    <span class="text">Rock</span>
+</div>
+<div class="option"  (click)="playTurn(rockPaperScissors.Paper)">
+    <i class="icon far fa-hand-paper fa-5x"></i>
+    <span class="text">Paper</span>
+</div>
+<div class="option" (click)="playTurn(rockPaperScissors.Scissors)">
+    <i class="far fa-hand-scissors fa-rotate-90 fa-5x"></i>
+    <span class="text">Scissors</span>
+</div>
