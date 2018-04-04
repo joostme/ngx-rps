@@ -10,6 +10,16 @@ export enum Result {
     Draw = 'DRAW'
 }
 
+type ResultDescriptions = {
+    [T in Result]: string;
+};
+
+export const resultDescriptions: ResultDescriptions = {
+    DRAW: 'It\'s a draw!',
+    LOST: 'You lost!',
+    WON: 'You won!'
+};
+
 export interface GameState {
     human: RockPaperScissors;
     computer: RockPaperScissors;
