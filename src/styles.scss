@@ -2,3 +2,7 @@
 $fa-font-path: "~@fortawesome/fontawesome-free-webfonts/webfonts";
 @import "~@fortawesome/fontawesome-free-webfonts/scss/fontawesome";
 @import "~@fortawesome/fontawesome-free-webfonts/scss/fa-regular";
+
+* {
+    box-sizing: border-box;
+}
