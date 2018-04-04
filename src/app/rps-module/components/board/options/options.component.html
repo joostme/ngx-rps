@@ -1,12 +1,12 @@
-<div class="option" (click)="playTurn(rockPaperScissors.Rock)">
+<div class="option" (click)="playTurn(rockPaperScissors.Rock)" [ngClass]="{ active: isSelectedOption(rockPaperScissors.Rock) }">
     <i class="icon far fa-hand-rock fa-5x"></i>
     <span class="text">Rock</span>
 </div>
-<div class="option"  (click)="playTurn(rockPaperScissors.Paper)">
+<div class="option"  (click)="playTurn(rockPaperScissors.Paper)" [ngClass]="{ active: isSelectedOption(rockPaperScissors.Paper) }">
     <i class="icon far fa-hand-paper fa-5x"></i>
     <span class="text">Paper</span>
 </div>
-<div class="option" (click)="playTurn(rockPaperScissors.Scissors)">
+<div class="option" (click)="playTurn(rockPaperScissors.Scissors)" [ngClass]="{ active: isSelectedOption(rockPaperScissors.Scissors) }">
     <i class="icon far fa-hand-scissors fa-rotate-90 fa-5x"></i>
     <span class="text">Scissors</span>
 </div>

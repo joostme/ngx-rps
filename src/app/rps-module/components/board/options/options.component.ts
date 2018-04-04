@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { RockPaperScissors } from '../../../shared/rps.model';
 
 @Component({
@@ -8,6 +8,9 @@ import { RockPaperScissors } from '../../../shared/rps.model';
 })
 export class OptionsComponent {
 
+    @Input()
+    selectedOption: RockPaperScissors;
+
     @Output()
     onPlayTurn: EventEmitter<RockPaperScissors> = new EventEmitter();
 
@@ -15,5 +18,9 @@ export class OptionsComponent {
 
     playTurn(hand: RockPaperScissors) {
         this.onPlayTurn.emit(hand);
+    }
+
+    private isSelectedOption(option: RockPaperScissors): boolean {
+        return this.selectedOption === option;
     }
 }

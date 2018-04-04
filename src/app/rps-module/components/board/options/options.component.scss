@@ -1,9 +1,15 @@
+:host {
+    display: flex;
+    justify-content: center;
+}
+
 .option {
     display: inline-block;
     cursor: pointer;
     margin: 1rem;
     text-align: center;
-    &:hover {
+
+    &:hover, &.active {
         color: rgba(mediumblue, 0.6);
     }
     &:active {
