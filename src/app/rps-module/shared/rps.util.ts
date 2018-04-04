@@ -1,4 +1,4 @@
-import { Result, RockPaperScissors } from 'app/rps-module/shared/rps.model';
+import { GameState, Result, RockPaperScissors } from 'app/rps-module/shared/rps.model';
 
 export function compareHands(handsA: RockPaperScissors, handsB: RockPaperScissors): Result {
 
@@ -18,3 +18,17 @@ export function compareHands(handsA: RockPaperScissors, handsB: RockPaperScissor
         }
     }
 }
+
+export function generateHand(): RockPaperScissors {
+
+    const options = Object.values(RockPaperScissors);
+    const random = Math.floor(Math.random() * options.length);
+
+    return <RockPaperScissors> options[random];
+}
+
+export const initialGameState: GameState = {
+    computer: null,
+    human: null,
+    result: null
+};

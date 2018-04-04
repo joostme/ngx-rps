@@ -1,5 +1,5 @@
 import { Result, RockPaperScissors } from 'app/rps-module/shared/rps.model';
-import { compareHands } from 'app/rps-module/shared/rps.util';
+import { compareHands, generateHand } from 'app/rps-module/shared/rps.util';
 
 describe('RPS Utils', () => {
     describe('compareHands', () => {
@@ -29,5 +29,16 @@ describe('RPS Utils', () => {
         });
 
 
+    });
+
+    describe('generateHand', () => {
+        it('returns a RockPaperScissors value', () => {
+            const value = generateHand();
+            expect(
+                value === RockPaperScissors.Paper ||
+                value === RockPaperScissors.Rock ||
+                value === RockPaperScissors.Scissors
+            ).toBe(true);
+        });
     });
 });
