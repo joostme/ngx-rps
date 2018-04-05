@@ -1,6 +1,7 @@
 import { GameState, Result, RockPaperScissors } from 'app/rps-module/shared/rps.model';
+import { flow } from 'lodash';
 
-export function compareHands(handsA: RockPaperScissors, handsB: RockPaperScissors): Result {
+export const compareHands = (handsA: RockPaperScissors, handsB: RockPaperScissors): Result => {
 
     if (handsA === handsB) {
         return Result.Draw;
@@ -22,28 +23,53 @@ export function compareHands(handsA: RockPaperScissors, handsB: RockPaperScissor
         }
     }
     return won ? Result.Won : Result.Lost;
-}
+};
 
-export function generateHand(): RockPaperScissors {
+export const generateHand = (): RockPaperScissors => {
 
     const options = Object.values(RockPaperScissors);
     const random = Math.floor(Math.random() * options.length);
 
     return <RockPaperScissors> options[random];
-}
+};
 
 export const initialGameState: GameState = {
     computer: null,
     human: null,
-    result: null
+    result: null,
+    humanRoundsWon: 0,
+    computerRoundsWon: 0
+};
+
+export const addHands =
+    (humanHand: RockPaperScissors, computerHand: RockPaperScissors) =>
+        (gameState: GameState): GameState => ({
+            ...gameState,
+            human: humanHand,
+            computer: computerHand
+        });
+
+export const addResult =
+    (gameState: GameState): GameState => ({
+        ...gameState,
+        result: compareHands(gameState.human, gameState.computer)
+    });
+
+
+export const increaseRoundsWon = (gameState: GameState): GameState => {
+    return {
+        ...gameState,
+        humanRoundsWon: gameState.result === Result.Won ? gameState.humanRoundsWon + 1 : gameState.humanRoundsWon,
+        computerRoundsWon: gameState.result === Result.Lost ? gameState.computerRoundsWon + 1 : gameState.computerRoundsWon
+    };
 };
 
 export const generateNewGameStateAfterTurn =
-    (gameState: GameState) =>
-        (humanHand: RockPaperScissors) =>
-            (computerHand: RockPaperScissors): GameState => ({
-                ...gameState,
-                human: humanHand,
-                computer: computerHand,
-                result: compareHands(humanHand, computerHand)
-            });
+    (humanHand: RockPaperScissors, computerHand: RockPaperScissors) =>
+        (gameState: GameState): GameState =>
+            flow(
+                addHands(humanHand, computerHand),
+                addResult,
+                increaseRoundsWon
+            )(gameState);
+

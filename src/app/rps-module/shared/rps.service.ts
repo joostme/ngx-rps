@@ -13,7 +13,7 @@ export class RpsService {
     playTurn(hand: RockPaperScissors) {
         const computerHand = generateHand();
 
-        this.gameState = generateNewGameStateAfterTurn(this.gameState)(hand)(computerHand);
+        this.gameState = generateNewGameStateAfterTurn(hand, computerHand)(this.gameState);
 
         this.emitNewGameState();
     }
