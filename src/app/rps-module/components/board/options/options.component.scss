@@ -8,6 +8,7 @@
     cursor: pointer;
     margin: 1rem;
     text-align: center;
+    color: rgba(black, 0.8);
 
     &:hover, &.active {
         color: rgba(mediumblue, 0.6);
@@ -18,12 +19,11 @@
 }
 
 .icon {
-    text-shadow: 5px 5px 5px rgba(black, 0.2);
+    text-shadow: 3px 3px 3px rgba(black, 0.2);
 }
 
 .text {
     display: block;
-    font-weight: bold;
     font-size: 1.25em;
-    text-shadow: 5px 5px 5px rgba(black, 0.2);
+    text-shadow: 3px 3px 3px rgba(black, 0.2);
 }
