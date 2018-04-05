@@ -1,5 +1,5 @@
-import { Result, RockPaperScissors } from 'app/rps-module/shared/rps.model';
-import { compareHands, generateHand } from 'app/rps-module/shared/rps.util';
+import { GameState, Result, RockPaperScissors } from 'app/rps-module/shared/rps.model';
+import { compareHands, generateHand, generateNewGameStateAfterTurn, initialGameState } from 'app/rps-module/shared/rps.util';
 
 describe('RPS Utils', () => {
     describe('compareHands', () => {
@@ -39,6 +39,24 @@ describe('RPS Utils', () => {
                 value === RockPaperScissors.Rock ||
                 value === RockPaperScissors.Scissors
             ).toBe(true);
+        });
+    });
+
+    describe('generateNewGameStateAfterTurn', () => {
+        it('returns a new game state with the given hands', () => {
+            const humandHand = RockPaperScissors.Rock;
+            const computerHand = RockPaperScissors.Paper;
+
+            const gameState = initialGameState;
+            const newGameState = generateNewGameStateAfterTurn(gameState)(humandHand)(computerHand);
+
+            const expectedGameState: GameState = {
+                human: humandHand,
+                computer: computerHand,
+                result: compareHands(humandHand, computerHand)
+            };
+
+            expect(newGameState).toEqual(expectedGameState);
         });
     });
 });

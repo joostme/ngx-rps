@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { GameState, Result, RockPaperScissors } from 'app/rps-module/shared/rps.model';
-import { compareHands, generateHand, initialGameState } from 'app/rps-module/shared/rps.util';
+import { compareHands, generateHand, generateNewGameStateAfterTurn, initialGameState } from 'app/rps-module/shared/rps.util';
 import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
 
@@ -8,25 +8,22 @@ import { Subject } from 'rxjs/Subject';
 export class RpsService {
 
     private gameStateSubject: Subject<GameState> = new Subject();
+    private gameState: GameState = initialGameState;
 
     playTurn(hand: RockPaperScissors) {
         const computerHand = generateHand();
 
-        const gameState: GameState = {
-            human: hand,
-            computer: computerHand,
-            result: compareHands(hand, computerHand)
-        };
+        this.gameState = generateNewGameStateAfterTurn(this.gameState)(hand)(computerHand);
 
-        this.emitNewGameState(gameState);
+        this.emitNewGameState();
     }
 
     getGameState(): Observable<GameState> {
         return this.gameStateSubject;
     }
 
-    private emitNewGameState(gameState: GameState) {
-        this.gameStateSubject.next(gameState);
+    private emitNewGameState() {
+        this.gameStateSubject.next(this.gameState);
     }
 
 }

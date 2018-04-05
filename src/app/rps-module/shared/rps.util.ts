@@ -6,17 +6,22 @@ export function compareHands(handsA: RockPaperScissors, handsB: RockPaperScissor
         return Result.Draw;
     }
 
+    let won: boolean;
     switch (handsA) {
         case RockPaperScissors.Rock: {
-            return handsB === RockPaperScissors.Scissors ? Result.Won : Result.Lost;
+            won = handsB === RockPaperScissors.Scissors;
+            break;
         }
         case RockPaperScissors.Paper: {
-            return handsB === RockPaperScissors.Rock ? Result.Won : Result.Lost;
+            won = handsB === RockPaperScissors.Rock;
+            break;
         }
         case RockPaperScissors.Scissors: {
-            return handsB === RockPaperScissors.Paper ? Result.Won : Result.Lost;
+            won = handsB === RockPaperScissors.Paper;
+            break;
         }
     }
+    return won ? Result.Won : Result.Lost;
 }
 
 export function generateHand(): RockPaperScissors {
@@ -32,3 +37,13 @@ export const initialGameState: GameState = {
     human: null,
     result: null
 };
+
+export const generateNewGameStateAfterTurn =
+    (gameState: GameState) =>
+        (humanHand: RockPaperScissors) =>
+            (computerHand: RockPaperScissors): GameState => ({
+                ...gameState,
+                human: humanHand,
+                computer: computerHand,
+                result: compareHands(humanHand, computerHand)
+            });
