@@ -12,11 +12,10 @@ export class ResultComponent {
     @Input()
     result: Result;
 
-    getResult(): string {
+    getResultText(): string {
         if (!isNil(this.result)) {
             return resultDescriptions[this.result];
         }
         return 'Play a game!';
     }
-
 }

@@ -31,13 +31,13 @@ describe('ResultComponent', () => {
         fixture.detectChanges();
         const expectedValue = resultDescriptions[Result.Won];
 
-        expect(component.getResult()).toBe(expectedValue);
+        expect(component.getResultText()).toBe(expectedValue);
     });
 
     it('returns play a game if gamestate is not defined', () => {
         component.result = undefined;
         fixture.detectChanges();
 
-        expect(component.getResult()).toBe('Play a game!');
+        expect(component.getResultText()).toBe('Play a game!');
     });
 });
