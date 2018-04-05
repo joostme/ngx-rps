@@ -1,2 +1,3 @@
 <rps-result [gameState]="gameState | async"></rps-result>
 <rps-options [selectedOption]="(gameState | async)?.human" (onPlayTurn)="playTurn($event)"></rps-options>
+<rps-score [human]="(gameState | async)?.humanRoundsWon" [computer]="(gameState | async)?.computerRoundsWon"></rps-score>

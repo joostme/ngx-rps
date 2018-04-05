@@ -4,6 +4,7 @@ import { RpsService } from 'app/rps-module/shared/rps.service';
 import { BoardComponent } from './components/board/board.component';
 import { OptionsComponent } from './components/board/options/options.component';
 import { ResultComponent } from './components/board/result/result.component';
+import { ScoreComponent } from './components/board/score/score.component';
 
 @NgModule({
     imports: [
@@ -15,7 +16,8 @@ import { ResultComponent } from './components/board/result/result.component';
     declarations: [
         BoardComponent,
         OptionsComponent,
-        ResultComponent
+        ResultComponent,
+        ScoreComponent
     ],
     exports: [
         BoardComponent
