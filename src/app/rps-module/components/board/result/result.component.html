@@ -1,8 +1,1 @@
-<h1 class="result">{{ result }}</h1>
-<h2 class="computer" *ngIf="computerHand">
-    Computer used
-    <span class="computer-result">{{ computerHand }}</span>
-    <i class="icon far fa-hand-rock" *ngIf="isOption(rockPaperScissors.Rock)"></i>
-    <i class="icon far fa-hand-paper" *ngIf="isOption(rockPaperScissors.Paper)"></i>
-    <i class="icon far fa-hand-scissors fa-rotate-90" *ngIf="isOption(rockPaperScissors.Scissors)"></i>
-</h2>
+<h1 class="result">{{ getResult() }}</h1>

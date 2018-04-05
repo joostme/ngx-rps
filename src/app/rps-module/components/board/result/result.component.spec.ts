@@ -8,12 +8,6 @@ describe('ResultComponent', () => {
     let component: ResultComponent;
     let fixture: ComponentFixture<ResultComponent>;
 
-    const gameState: GameState = {
-        human: RockPaperScissors.Rock,
-        computer: RockPaperScissors.Paper,
-        result: Result.Lost
-    };
-
     beforeEach(async(() => {
         TestBed.configureTestingModule({
             imports: [RpsModule]
@@ -24,7 +18,7 @@ describe('ResultComponent', () => {
     beforeEach(() => {
         fixture = TestBed.createComponent(ResultComponent);
         component = fixture.componentInstance;
-        fixture.componentInstance.gameState = gameState;
+        component.result = Result.Won;
         fixture.detectChanges();
     });
 
@@ -33,18 +27,17 @@ describe('ResultComponent', () => {
     });
 
     it('returns the result string', () => {
-        fixture.componentInstance.gameState = gameState;
+        component.result = Result.Won;
         fixture.detectChanges();
-        const expectedValue = resultDescriptions[gameState.result];
+        const expectedValue = resultDescriptions[Result.Won];
 
-        expect(fixture.componentInstance.result).toBe(expectedValue);
+        expect(component.getResult()).toBe(expectedValue);
     });
 
     it('returns play a game if gamestate is not defined', () => {
-        fixture.componentInstance.gameState = undefined;
+        component.result = undefined;
         fixture.detectChanges();
 
-        expect(fixture.componentInstance.result).toBe('Play a game!');
-
+        expect(component.getResult()).toBe('Play a game!');
     });
 });

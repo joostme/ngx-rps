@@ -10,26 +10,13 @@ import { isNil } from 'lodash';
 export class ResultComponent {
 
     @Input()
-    gameState: GameState;
+    result: Result;
 
-    rockPaperScissors = RockPaperScissors;
-    resultDescriptions = resultDescriptions;
-
-    get result(): string {
-        if (!isNil(this.gameState)) {
-            return this.resultDescriptions[this.gameState.result];
+    getResult(): string {
+        if (!isNil(this.result)) {
+            return resultDescriptions[this.result];
         }
         return 'Play a game!';
     }
 
-    get computerHand(): string {
-        if (!isNil(this.gameState)) {
-            return this.gameState.computer;
-        }
-        return null;
-    }
-
-    private isOption(option: RockPaperScissors): boolean {
-        return this.computerHand === option;
-    }
 }
