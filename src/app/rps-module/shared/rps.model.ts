@@ -24,4 +24,6 @@ export interface GameState {
     human: RockPaperScissors;
     computer: RockPaperScissors;
     result: Result;
+    humanRoundsWon: number;
+    computerRoundsWon: number;
 }
