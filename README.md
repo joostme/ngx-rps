@@ -18,3 +18,47 @@ All game-specific logic can be found at `src/app/rps-module/shared`.
 This includes the `models`, `service` and `utility functions`.
 
 The UI components can be found at `src/app/rps-module/components`.
+
+### How it works
+
+The whole application relies on the `GameState`:
+
+```ts
+export interface GameState {
+    human: RockPaperScissors;
+    computer: RockPaperScissors;
+    result: Result;
+    humanRoundsWon: number;
+    computerRoundsWon: number;
+}
+```
+
+where `RockPaperScissors` is
+
+```ts
+export enum RockPaperScissors {
+    Rock = 'ROCK',
+    Paper = 'PAPER',
+    Scissors = 'SCISSORS'
+}
+```
+
+and `Result` is
+
+```ts
+export enum Result {
+    Won = 'WON',
+    Lost = 'LOST',
+    Draw = 'DRAW'
+}
+```
+
+There are different functions that change the state based on the human's and the generated computer's choice of options.
+
+The `RpsService` manages the current game state and provides an observable stream that the UI components subscribe to.
+
+The `RpsService` provides a function to play the next turn that causes the game state to change and thus the observable to provide a new game state object.
+
+```ts
+playTurn(hand: RockPaperScissors) { ... }
+```
