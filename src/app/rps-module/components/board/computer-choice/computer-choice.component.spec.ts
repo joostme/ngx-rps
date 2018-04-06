@@ -24,4 +24,9 @@ describe('ComputerChoiceComponent', () => {
     it('should create', () => {
         expect(component).toBeTruthy();
     });
+
+    it('renders only one icon at a time', () => {
+        const el: HTMLElement = fixture.nativeElement;
+        expect(el.querySelectorAll('i').length).toBe(1);
+    });
 });

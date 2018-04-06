@@ -34,10 +34,10 @@ describe('ResultComponent', () => {
         expect(component.getResultText()).toBe(expectedValue);
     });
 
-    it('returns play a game if gamestate is not defined', () => {
+    it('returns choose an option if gamestate is not defined', () => {
         component.result = undefined;
         fixture.detectChanges();
 
-        expect(component.getResultText()).toBe('Play a game!');
+        expect(component.getResultText()).toBe('Choose an option!');
     });
 });
