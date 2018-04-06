@@ -1,27 +1,20 @@
-# NgxRps
+# Ngx-Rock-Paper-Scissors
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.3.
+This project is a simple Rock-Paper-Scissors game written in Angular 5.
 
-## Development server
+The app uses the caching and offline functionality of Service Worker.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Start the application
 
-## Code scaffolding
+First `npm install` to install all necessary dependencies.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Then `npm start` to launch the application. It will be available at [http://localhost:4200](http://localhost:4200).
 
-## Build
+## Code
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+The complete RPS game code is bundled in the `RpsModule` in `src/app/rps-module`.
 
-## Running unit tests
+All game-specific logic can be found at `src/app/rps-module/shared`.
+This includes the `models`, `service` and `utility functions`.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+The UI components can be found at `src/app/rps-module/components`.
