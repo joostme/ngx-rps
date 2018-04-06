@@ -20,7 +20,7 @@ export class OptionsComponent {
         this.onPlayTurn.emit(hand);
     }
 
-    private isSelectedOption(option: RockPaperScissors): boolean {
+    isSelectedOption(option: RockPaperScissors): boolean {
         return this.selectedOption === option;
     }
 }
