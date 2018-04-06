@@ -16,6 +16,6 @@ export class ResultComponent {
         if (!isNil(this.result)) {
             return resultDescriptions[this.result];
         }
-        return 'Play a game!';
+        return 'Choose an option!';
     }
 }

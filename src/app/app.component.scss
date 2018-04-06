@@ -4,7 +4,10 @@
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    justify-content: center;
     align-items: center;
     background-color: #c6c6c6;
+}
+
+rps-board {
+    margin-top: 20vh;
 }
