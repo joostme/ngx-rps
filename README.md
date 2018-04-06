@@ -62,3 +62,17 @@ The `RpsService` provides a function to play the next turn that causes the game 
 ```ts
 playTurn(hand: RockPaperScissors) { ... }
 ```
+
+## Service Worker
+
+To use the Service Worker you first have to build the application in production mode.
+For this run 
+
+```npm
+npm run build
+``` 
+
+to build the application.
+
+The generated files are located in the `dist/` folder. 
+From there start a local server with `http-server` or a program of your choice.
